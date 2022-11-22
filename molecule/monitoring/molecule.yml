@@ -7,28 +7,9 @@ platforms:
   - name: centos7
     image: "percygrunwald/docker-centos7-ansible:latest"
     pre_build_image: true
-scenario:
-  name: default
-  test_sequence:
-    - destroy # destroy before dependency
-    - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
-    #- syntax --playbook-name syntax-check.yml
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - destroy
-    
 provisioner:
   name: ansible
   env:
     ANSIBLE_ROLES_PATH: ../../../roles/
 verifier:
   name: ansible
-lint: |
- # set -e
-  yamllint .
-  ansible-lint
-  flake8
