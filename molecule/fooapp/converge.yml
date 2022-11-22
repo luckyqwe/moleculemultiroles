@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   roles:
-    - role: fooapp
+    - role: DCE/fooapp
 
 
