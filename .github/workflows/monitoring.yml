@@ -1,9 +1,9 @@
 ---
 name: Molecule Test
 on:
-  pull_request:
+  push:
     paths:
-      - 'roles/HSC/monitoring/**'
+      - 'roles/HSE/monitoring/**'
       - 'molecule/monitoring/**'
       - '.github/workflows/monitoring.yml'
  
@@ -18,6 +18,8 @@ jobs:
       matrix:
         python-version:
           - 3.8
+        collection_role:
+          - monitoring
     steps:
       - uses: actions/checkout@v2
         with:
@@ -36,5 +38,5 @@ jobs:
           python3 -m pip install --user "molecule[docker]"
       
       - name: Molecule Testing
-        run:  molecule list && molecule create && molecule converge && molecule list && molecule verify
+        run:  cd moleculemultiroles && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
         
