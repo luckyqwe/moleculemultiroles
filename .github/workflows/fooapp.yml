@@ -38,5 +38,5 @@ jobs:
           python3 -m pip install --user "molecule[docker]"
       
       - name: Molecule Testing
-        run:  molecule --debug test -s ${{ matrix.collection_role }}
+        run:  cd moleculemultiroles && molecule --debug test -s ${{ matrix.collection_role }}
         
