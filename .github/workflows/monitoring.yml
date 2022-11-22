@@ -1,0 +1,40 @@
+---
+name: Molecule Test
+on:
+  pull_request:
+    paths:
+      - 'roles/HSC/monitoring/**'
+      - 'molecule/monitoring/**'
+      - '.github/workflows/monitoring.yml'
+ 
+ #check_suite:
+    #types: [completed]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version:
+          - 3.8
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: newProject
+          
+      - name: 'Set up Python ${{ matrix.python-version }}'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '${{ matrix.python-version }}'
+          
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install molecule ansible-core
+          python3 -m pip install --upgrade --user setuptools
+          python3 -m pip install --user "molecule[docker]"
+      
+      - name: Molecule Testing
+        run:  molecule list && molecule create && molecule converge && molecule list && molecule verify
+        
