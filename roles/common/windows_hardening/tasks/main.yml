@@ -1,0 +1,5 @@
+---
+
+- name: Perform Server Hardening
+  include_tasks: hardening.yml
+

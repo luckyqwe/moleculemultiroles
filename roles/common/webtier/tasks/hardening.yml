@@ -1,0 +1,4 @@
+---
+- name: Perform Password Hardening
+  include_tasks: password_section.yml
+  when: "'password_section' in user_select"

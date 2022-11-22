@@ -1,0 +1,8 @@
+---
+windows_hardening:
+  system_access: "System Access"
+  password_section:
+    password_expiry_warning:
+      name: 'PasswordExpiryWarning'
+      path: 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon'
+      value: 14

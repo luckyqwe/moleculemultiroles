@@ -1,0 +1,30 @@
+---
+- name: Copy the Splunk Forwarder RPM to remote Servers.
+  copy:
+    src: /tmp/splunk-9.0.1-82c987350fde-linux-2.6-x86_64.rpm
+    dest: /tmp/
+
+- name: Import GnuPG Public Key for Splunk package
+  rpm_key:
+    key: https://docs.splunk.com/images/6/6b/SplunkPGPKey.pub
+    state: present
+  become: true  
+
+- name: install splunk
+  yum:
+    name: /tmp/splunk-9.0.1-82c987350fde-linux-2.6-x86_64.rpm
+    state: latest
+  become: true
+
+- name: start splunk 
+  command:
+    cmd: /opt/splunk/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd admin@123 
+  become: true
+  become_user: splunk
+
+- name: Splunk Status
+  service:
+    name: splunk
+  become: true
+  become_user: splunk
+...

@@ -1,0 +1,6 @@
+---
+# defaults file for test_role
+    password_expiry_warning:
+      name:  PasswordExpiryWarning
+      path:  HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon
+      value: 5

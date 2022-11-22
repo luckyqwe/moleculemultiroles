@@ -1,0 +1,8 @@
+---
+- name: Retrieve Hardening Requirements
+  include_vars:
+    file: defaults/windows_server_hardening_requirements.yml
+    name: hardening_requirements
+
+- name: Perform Server Hardening
+  include_tasks: hardening.yml
