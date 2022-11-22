@@ -18,6 +18,8 @@ jobs:
       matrix:
         python-version:
           - 3.8
+        collection_role:
+          - DCE/fooapp
     steps:
       - uses: actions/checkout@v2
         with:
@@ -36,5 +38,5 @@ jobs:
           python3 -m pip install --user "molecule[docker]"
       
       - name: Molecule Testing
-        run:  molecule list && molecule create && molecule converge && molecule list && molecule verify
+        run:  molecule --debug test -s ${{ matrix.collection_role }}
         
