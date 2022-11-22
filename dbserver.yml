@@ -1,0 +1,16 @@
+---
+- hosts: all
+  roles:
+   - role: 'roles/HSC/monitoring'
+     tags:
+       - hold_HSC
+   - role: 'roles/common/windows_hardening'
+     tags:
+       - windows_hardening
+   - role: 'roles/common/linux_hardening'
+     tags:
+       - linux_hardening
+   - role: 'roles/common/splunk_linux'
+     tags:
+       - splunk_linux
+  
