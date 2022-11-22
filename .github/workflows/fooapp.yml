@@ -19,7 +19,7 @@ jobs:
         python-version:
           - 3.8
         collection_role:
-          - DCE/fooapp
+          - fooapp
     steps:
       - uses: actions/checkout@v2
         with:
