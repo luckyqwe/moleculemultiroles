@@ -9,5 +9,7 @@
       until: task_result is success
       retries: 10
       delay: 2
+  #roles:
+    #- role: DCE/fooapp
   roles:
-    - role: DCE/fooapp
+    - role: "DCE.fooapp"
