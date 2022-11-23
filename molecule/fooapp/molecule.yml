@@ -11,7 +11,7 @@ scenario:
   name: fooapp
   test_sequence:
     - destroy # destroy before dependency
-    - lint moleculemultiroles/roles/DCE/fooapp/**
+    - lint
     - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
     - syntax 
     - create
@@ -31,6 +31,7 @@ verifier:
   name: ansible
 lint: |
   set -e
+  export ANSIBLE_ROLES_PATH=${MOLECULE_PROJECT_DIRECTORY}/roles/DCE/fooapp
   yamllint .
   ansible-lint
   flake8
