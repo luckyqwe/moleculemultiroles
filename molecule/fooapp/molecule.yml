@@ -31,7 +31,7 @@ verifier:
   name: ansible
 lint: |
   set -e
-  export ANSIBLE_ROLES_PATH=${MOLECULE_PROJECT_DIRECTORY}/roles/DCE/fooapp/..
+  #export ANSIBLE_ROLES_PATH=${MOLECULE_PROJECT_DIRECTORY}/roles/DCE/fooapp/..
   yamllint .
   ansible-lint
   flake8
