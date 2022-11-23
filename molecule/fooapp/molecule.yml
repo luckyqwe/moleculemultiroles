@@ -11,7 +11,7 @@ scenario:
   name: fooapp
   test_sequence:
     - destroy # destroy before dependency
-    - lint
+    - lint moleculemultiroles/roles/DCE/fooapp/**
     - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
     - syntax 
     - create
