@@ -11,5 +11,5 @@
       delay: 2
   #roles:
     #- role: DCE/fooapp
-  roles:
-    - role: "DCE.fooapp"
+  #roles:
+    #- role: "DCE.fooapp"
