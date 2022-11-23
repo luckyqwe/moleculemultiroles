@@ -36,7 +36,6 @@ jobs:
           python3 -m pip install molecule ansible-core
           python3 -m pip install --upgrade --user setuptools
           python3 -m pip install --user "molecule[docker,lint]"
-          python3 -m pip install --user "molecule ansible-lint"
           ansible-galaxy collection install community.docker
       - name: Molecule Testing
         run: cd moleculemultiroles && molecule test -s ${{ matrix.collection_role }}
