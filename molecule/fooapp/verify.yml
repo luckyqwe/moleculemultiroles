@@ -5,5 +5,4 @@
   hosts: all
   roles:
     - role: DCE/fooapp
-    - role: HSC/monitoring
 
