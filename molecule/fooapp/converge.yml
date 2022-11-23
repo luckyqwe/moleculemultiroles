@@ -10,7 +10,7 @@
       retries: 10
       delay: 2
   import_palybook: ../../../roles/DCE
-  #roles:
-    #- role: DCE/fooapp
+  roles:
+    - role: moleculemultiroles/roles/DCE/fooapp
   #roles:
     #- role: "DCE.fooapp"
