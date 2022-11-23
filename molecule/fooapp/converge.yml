@@ -9,7 +9,7 @@
       until: task_result is success
       retries: 10
       delay: 2
-  import_palybook: ../../../roles/DCE
+  #import_palybook: ../../../roles/DCE
   roles:
     - role: moleculemultiroles/roles/DCE/fooapp
   #roles:
