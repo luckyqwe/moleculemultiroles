@@ -8,7 +8,7 @@ platforms:
     image: "percygrunwald/docker-centos7-ansible:latest"
     pre_build_image: true
 scenario:
-  name: default
+  name: fooapp
   test_sequence:
     - destroy # destroy before dependency
     - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
