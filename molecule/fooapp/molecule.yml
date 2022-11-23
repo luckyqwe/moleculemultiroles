@@ -7,6 +7,10 @@ platforms:
   - name: centos7
     image: "percygrunwald/docker-centos7-ansible:latest"
     pre_build_image: true
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 scenario:
   name: fooapp
   test_sequence:
