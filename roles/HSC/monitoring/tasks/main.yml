@@ -1,4 +1,4 @@
-- name: Install the latest version of httpd for monitoring role123
+- name: Install the latest version of httpd for monitoring role
   ansible.builtin.yum:
     name: httpd
     state: present
