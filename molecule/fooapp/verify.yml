@@ -4,4 +4,4 @@
 - name: Verify
   hosts: all
   roles:
-    - role: moleculemultiroles/roles/DCE/fooapp
+    - role: moleculemultiroles/roles/DCE/fooapp 
