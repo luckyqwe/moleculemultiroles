@@ -1,5 +1,5 @@
 ---
-name: Molecule Test for fooapp role
+name: Molecule Test for fooapp role Test
 on:
   push:
     paths:
