@@ -3,7 +3,7 @@ name: Molecule Test for monitoring role
 on:
   push:
     paths:
-      - 'roles/HSE/monitoring/**'
+      - 'roles/HSC/monitoring/**'
       - '.github/workflows/monitoring.yml'
  
  #check_suite:
