@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'roles/HSE/monitoring/**'
-      - 'molecule/monitoring/**'
       - '.github/workflows/monitoring.yml'
  
  #check_suite:
@@ -38,5 +37,5 @@ jobs:
           python3 -m pip install --user "molecule[docker]"
       
       - name: Molecule Testing
-        run:  cd moleculemultiroles && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
+        run:  cd moleculemultiroles/roles/HSC/monitoring && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
         
