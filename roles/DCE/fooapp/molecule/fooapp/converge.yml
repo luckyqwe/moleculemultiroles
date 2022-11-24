@@ -3,4 +3,4 @@
   hosts: all
   roles:
     #- role: moleculemultiroles/roles/DCE/fooapp
-    - role: DCE/fooapp
+    - role: roles/DCE/fooapp
