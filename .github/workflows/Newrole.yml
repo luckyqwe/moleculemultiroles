@@ -34,7 +34,7 @@ jobs:
           python3 -m pip install --user "molecule[docker,lint]"
           ansible-galaxy collection install community.docker
       - name: Molecule Testing
-        run: cd moleculemultiroles && molecule test -s ${{ matrix.collection_role }}
-        #run:  cd moleculemultiroles/roles/Test/Newrole && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
+        run: cd moleculemultiroles/roles/Test/Newrole && molecule test -s ${{ matrix.collection_role }}
+        #run:  cd moleculemultiroles && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
         
 
