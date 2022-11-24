@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'roles/DCE/fooapp/**'
-      - 'molecule/fooapp/**'
+      #- 'molecule/fooapp/**'
       - '.github/workflows/fooapp.yml'
   
 jobs:
