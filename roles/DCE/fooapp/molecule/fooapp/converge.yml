@@ -1,5 +1,12 @@
+#---
+#- name: Converge
+#  hosts: all
+#  roles:
+#    - role: moleculemultiroles/roles/DCE/fooapp
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: moleculemultiroles/roles/DCE/fooapp
+  tasks:
+    - name: "Include fooapp"
+      include_role:
+        name: "fooapp"
