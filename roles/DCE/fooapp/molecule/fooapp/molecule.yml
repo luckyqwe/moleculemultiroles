@@ -1,0 +1,31 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: centos7
+    image: "percygrunwald/docker-centos7-ansible:latest"
+    pre_build_image: true
+scenario:
+  name: fooapp
+  test_sequence:
+    - destroy # destroy before dependency
+    - lint
+    - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
+    - syntax 
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - side_effect
+    - verify
+    - destroy
+provisioner:
+  name: ansible
+  #playbooks:
+    #converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  env:
+    ANSIBLE_ROLES_PATH: ../../../roles/
+verifier:
+  name: ansible

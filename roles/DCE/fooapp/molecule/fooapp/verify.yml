@@ -1,0 +1,7 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  roles:
+    - role: moleculemultiroles/roles/DCE/fooapp 
