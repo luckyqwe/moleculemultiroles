@@ -4,6 +4,5 @@
 - name: Verify
   hosts: all
   roles:
-    - role: DCE/fooapp
-    - role: HSC/monitoring
+    - role: monitoring
 
