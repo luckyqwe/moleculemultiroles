@@ -16,7 +16,7 @@
   - name: Ensure content type is text/html
     assert:
       that:
-      - "'text/html' in this.content_type"
+      - "'json' in this.content_type"
 
   - name: Debug results
     debug:
