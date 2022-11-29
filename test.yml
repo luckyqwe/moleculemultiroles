@@ -1,0 +1,7 @@
+---
+  - name: Testing Playbook for ansible"
+    hosts: localhost
+    tasks:
+      - name: Test Message here
+        debug:
+          msg: "Hello World Message"
