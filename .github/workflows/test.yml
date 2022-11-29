@@ -28,12 +28,12 @@ jobs:
               - 'roles/DCE/fooapp/**'
             path2:
               - 'roles/Test/Newrole/**'
-            path2:
+            path3:
             - '.github/workflows/**'
               
             
       - name: Run molecule Testing and install dependencies if conidtion statisfied
-        if: steps.filter.outputs.path1 == 'true'
+        if: steps.filter.outputs.path3 == 'true'
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install molecule ansible-core
