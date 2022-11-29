@@ -1,5 +1,5 @@
 ---
-name: Molecule Test for fooapp role Test1
+name: Molecule Test for fooapp role Test
 on:
   push:
     paths:
@@ -27,8 +27,7 @@ jobs:
           python-version: '${{ matrix.python-version }}'
           
       - name: Get changed files
-        id: changed-files
-        uses: moleculemultiroles   
+        id: changed-files 
         
       - name: List all changed files
         run: |
