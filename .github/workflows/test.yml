@@ -18,12 +18,6 @@ jobs:
             path2:
               - 'roles/Test/Newrole/**'
               
-      - name: path1 testing
-        if: steps.filter.outputs.path1 == 'true'
-        run: |
-            echo "::group::My title"
-            echo "Inside group"
-            echo "::endgroup::"
             
       - name: path1 testing
         if: steps.filters.path1 == 'true'
