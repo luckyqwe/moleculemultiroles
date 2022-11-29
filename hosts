@@ -1,5 +1,5 @@
-[localconnection]
-54.177.224.95
+[controller]
+54.177.224.95 ansible_ssh_pass=admin@123 ansible_ssh_user=testuser
 # [windows]
 # 54.67.34.64
 # #172.31.12.20
