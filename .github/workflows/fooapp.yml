@@ -28,7 +28,7 @@ jobs:
           
       - name: Get changed files
         id: changed-files 
-        uses: tj-actions/changed-files@v34
+        uses: https://github.com/jyaggarwal/moleculemultiroles.git@v2
         
       - name: List all changed files
         run: |
