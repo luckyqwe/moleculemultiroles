@@ -20,5 +20,8 @@ jobs:
               
       - name: path1 testing
         if: steps.filter.outputs.path1 == 'true'
-        run: echo "runs"
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
 
