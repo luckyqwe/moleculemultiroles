@@ -1,5 +1,7 @@
 galaxy_info:
-  author: Test_Newrole
+  author: Newrole
+  namespace: my_galaxy_namespace
+  role_name: Test_Newrole
   description: your role description
   company: your company (optional)
 
