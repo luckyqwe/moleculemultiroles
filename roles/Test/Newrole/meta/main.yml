@@ -1,7 +1,7 @@
 galaxy_info:
+  role_name: linux_administration
+  namespace: glennbell
   author: Newrole
-  namespace: my_galaxy_namespace
-  role_name: Test_Newrole
   description: your role description
   company: your company (optional)
 
