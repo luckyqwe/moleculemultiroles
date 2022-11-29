@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'roles/**'
+      - '.github/workflows/test.yml'
   
 jobs:
   build:
