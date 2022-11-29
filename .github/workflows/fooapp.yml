@@ -25,7 +25,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '${{ matrix.python-version }}'
-                
+      
+      - name: 'fetch path'
+        with:
+          uses: ctions/checkout@v2
+          # Number of commits to fetch. 0 indicates all history for all branches and tags.
+          # Default: 1
+          fetch-depth: ''
+          
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
