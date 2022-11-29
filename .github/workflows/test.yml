@@ -1,5 +1,5 @@
 ---
-name: Molecule Test for path Test
+name: path Test
 on:
   push:
     paths:
