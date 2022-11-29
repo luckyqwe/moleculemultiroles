@@ -25,7 +25,8 @@ jobs:
               - 'roles/DCE/fooapp/**'
             path2:
               - 'roles/Test/Newrole/**'
-      - name: path1 tests
+              
+      - name: path1 testing
         if: steps.filter.outputs.path1 == 'true'
-        run: echo 'test'
+        run: ansible version
 
