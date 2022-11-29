@@ -5,3 +5,4 @@
     - role: 'roles/DCE/fooapp'
       tags:
         - present
+    - role: 'roles/Test/Newrole'
