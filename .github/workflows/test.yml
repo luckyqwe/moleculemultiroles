@@ -3,8 +3,7 @@ name: Molecule Test for path Test
 on:
   push:
     paths:
-      - 'roles/DCE/fooapp/**'
-      - '.github/workflows/fooapp.yml'
+      - 'roles/**'
   
 jobs:
   build:
