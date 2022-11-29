@@ -21,7 +21,7 @@ jobs:
               
             
       - name: path1 testing
-        if: steps.filters.path1 == 'true'
+        if: steps.filter.outputs.path1 == 'true'
         run: |
             echo "::group::My title"
             echo "Inside group"
