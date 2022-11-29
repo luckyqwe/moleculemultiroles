@@ -35,8 +35,7 @@ jobs:
       - name: Run molecule Testing and install dependencies if conidtion statisfied
         if: steps.filter.outputs.path3 == 'true'
         run: |
-          //cd matrix.reponame/steps.filter.outputs.path1
-          ls -ld
+          ls
           pwd
 
       
