@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout to github
       - uses: actions/checkout@v2
         id: filter
         with:
@@ -18,5 +19,5 @@ jobs:
               
       - name: path1 testing
         if: steps.filter.outputs.path1 == 'true'
-        run: echo "$file was added"
+        run: echo "runs"
 
