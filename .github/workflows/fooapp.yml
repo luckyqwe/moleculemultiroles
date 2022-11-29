@@ -27,7 +27,7 @@ jobs:
           python-version: '${{ matrix.python-version }}'
       
       - name: 'get path'
-        run: echo github.event.path
+        run: echo $github.event.path
         
       - name: Install dependencies
         run: |
