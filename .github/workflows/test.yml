@@ -4,6 +4,7 @@ on:
   push:
      paths: 
        - 'roles/**'
+       - '.github/workflows/test.yml'
   
 jobs:
   build:
@@ -23,11 +24,7 @@ jobs:
       - name: path1 testing
         if: steps.filter.outputs.path1 == 'true'
         run: |
-            echo "::group::My title"
-            echo "Inside group"
-            echo "::endgroup::"
+            echo steps.filter.outputs.path1
+
         
-      - name: simple evaluation on main
-        if: github.ref == 'refs/heads/main'
-        run: echo "runs"
 
