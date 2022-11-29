@@ -29,5 +29,5 @@ jobs:
               
       - name: path1 testing
         if: steps.filter.outputs.path1 == 'true'
-        run: ansible version
+        run: ansible --version
 
