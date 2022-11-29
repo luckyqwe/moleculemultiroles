@@ -24,9 +24,13 @@ jobs:
             echo "::group::My title"
             echo "Inside group"
             echo "::endgroup::"
-      - name: simple evaluation on master
-        if: github.ref == 'refs/heads/master'
-        run: echo "runs"
+            
+      - name: path1 testing
+        if: steps.filter.outputs.path1 == 'true'
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
         
       - name: simple evaluation on main
         if: github.ref == 'refs/heads/main'
