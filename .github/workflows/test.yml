@@ -16,6 +16,8 @@ jobs:
           - 3.8
         collection_role:
           - fooapp
+        reponame:
+          - moleculemultiroles
     steps:
       - uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
@@ -36,7 +38,8 @@ jobs:
           python3 -m pip install --upgrade --user setuptools
           python3 -m pip install --user "molecule[docker,lint]"
           ansible-galaxy collection install community.docker
-          echo moleculemultiroles/steps.filter.outputs.path1
+          cd matrix.reponame/steps.filter.outputs.path1
+          pwd
 
       
 
