@@ -40,7 +40,8 @@ jobs:
           python3 -m pip install --upgrade --user setuptools
           python3 -m pip install --user "molecule[docker,lint]"
           ansible-galaxy collection install community.docker
-          cd matrix.reponame/steps.filter.outputs.path1
+          //cd matrix.reponame/steps.filter.outputs.path1
+          ls -ld
           pwd
 
       
