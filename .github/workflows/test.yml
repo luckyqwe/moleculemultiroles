@@ -29,20 +29,4 @@ jobs:
       - name: path1 tests
         if: steps.filter.outputs.path1 == 'true'
         run: echo 'test'
-          
-      - name: 'Set up Python ${{ matrix.python-version }}'
-        uses: actions/setup-python@v2
-        with:
-          python-version: '${{ matrix.python-version }}'
-        
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install molecule ansible-core
-          python3 -m pip install --upgrade --user setuptools
-          python3 -m pip install --user "molecule[docker,lint]"
-          ansible-galaxy collection install community.docker
-      - name: Molecule Testing
-        run: cd moleculemultiroles/roles/DCE/fooapp && molecule test -s ${{ matrix.collection_role }}
-        #run:  cd moleculemultiroles && molecule list -s ${{ matrix.collection_role }} && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }} && molecule list -s ${{ matrix.collection_role }}
-        
+
