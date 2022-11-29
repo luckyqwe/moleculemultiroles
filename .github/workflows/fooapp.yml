@@ -26,6 +26,16 @@ jobs:
         with:
           python-version: '${{ matrix.python-version }}'
           
+      - name: Get changed files
+        id: changed-files
+        uses: moleculemultiroles   
+        
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+          
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
