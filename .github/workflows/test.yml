@@ -21,26 +21,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            path1:
-              - 'roles/DCE/fooapp/**'
-            path2:
-              - 'roles/Test/Newrole/**'
-            path3:
-            - '.github/workflows/**'
+        #id: filter
+        #with:
+        #  filters: |
+        #    path1:
+        #      - 'roles/DCE/fooapp/**'
+        #    path2:
+        #      - 'roles/Test/Newrole/**'
+        #    path3:
+        #    - '.github/workflows/**'
               
             
-      - name: Install dependencies & Molecule Test for Newrole
-        if: steps.filter.outputs.path2 == 'true'
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install molecule ansible-core
-          python3 -m pip install --upgrade --user setuptools
-          python3 -m pip install --user "molecule[docker]"
-          ansible-galaxy collection install community.docker
-          cd moleculemultiroles/roles/Test/Newrole && molecule test -s ${{ matrix.collection_role }}
+      #- name: Install dependencies & Molecule Test for Newrole
+      #  if: steps.filter.outputs.path2 == 'true'
+      #  run: |
+      #    python3 -m pip install --upgrade pip
+      #    python3 -m pip install molecule ansible-core
+      #    python3 -m pip install --upgrade --user setuptools
+      #    python3 -m pip install --user "molecule[docker]"
+      #    ansible-galaxy collection install community.docker
+      #    cd moleculemultiroles/roles/Test/Newrole && molecule test -s ${{ matrix.collection_role }}
 
       
 
