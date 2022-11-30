@@ -24,7 +24,7 @@ provisioner:
   name: ansible
   #playbooks:
     #converge: ${MOLECULE_PLAYBOOK:-converge.yml}
-  env:
-    ANSIBLE_ROLES_PATH: ../../../roles/
+  #env:
+    #ANSIBLE_ROLES_PATH: ../../../roles/
 verifier:
   name: ansible
