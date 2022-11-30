@@ -2,6 +2,7 @@
 name: Molecule Test for fooapp role Test
 on:
   push:
+  pull_request:
     paths:
       - 'roles/DCE/fooapp/**'
       - '.github/workflows/fooapp.yml'
