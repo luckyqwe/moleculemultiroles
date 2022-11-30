@@ -32,8 +32,8 @@ jobs:
         #    - '.github/workflows/**'
               
             
-      #- name: Install dependencies & Molecule Test for Newrole
-      #  if: steps.filter.outputs.path2 == 'true'
+      - name: Install dependencies & Molecule Test for Newrole
+        if: steps.filter.outputs.path2 == 'true'
       #  run: |
       #    python3 -m pip install --upgrade pip
       #    python3 -m pip install molecule ansible-core
