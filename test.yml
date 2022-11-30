@@ -1,7 +1,0 @@
----
-  - name: Testing Playbook for ansible"
-    hosts: all
-    tasks:
-      - name: Test Message here
-        debug:
-          msg: "Hello World Message"
