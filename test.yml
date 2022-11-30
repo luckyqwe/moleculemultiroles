@@ -1,6 +1,6 @@
 ---
   - name: Testing Playbook for ansible"
-    hosts: 52.8.66.247
+    hosts: all
     tasks:
       - name: Test Message here
         debug:
