@@ -14,6 +14,8 @@ jobs:
       matrix:
         python-version:
           - 3.8
+        collection_role:
+          - Newrole
         reponame:
           - moleculemultiroles
     steps:
@@ -38,7 +40,7 @@ jobs:
           python3 -m pip install --upgrade --user setuptools
           python3 -m pip install --user "molecule[docker]"
           ansible-galaxy collection install community.docker
-          cd moleculemultiroles/roles/Test/Newrole && molecule test -s Newrole
+          cd moleculemultiroles/roles/Test/Newrole && molecule test -s ${{ matrix.collection_role }}
 
       
 
