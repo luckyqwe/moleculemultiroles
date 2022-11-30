@@ -3,10 +3,3 @@
   hosts: all
   roles:
     - role: fooapp
-#---
-#- name: Converge
-#  hosts: all
-#  tasks:
-#    - name: "Include fooapp"
-#      include_role:
-#        name: "fooapp"
