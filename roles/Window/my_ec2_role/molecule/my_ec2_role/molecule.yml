@@ -6,7 +6,7 @@ driver:
 platforms:
   - name: instance
     image: ami-09c08b542a3df6eac
-    image_owner: "172602726657"
+    image_owner: "801119661308"
     image_name: "amazon/Windows_Server-2022-English-Full-Base-2023.01.19"
     instance_type: t2.micro
     vpc_subnet_id: subnet-0cd6574a3c1f4a868
