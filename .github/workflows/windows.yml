@@ -35,8 +35,9 @@ jobs:
           python3 -m pip install molecule ansible-core
           python3 -m pip install --upgrade --user setuptools
           #python3 -m pip install --user "molecule[docker]"
-          pip install molecule-ec2
+          pip3 install boto boto3
           ansible-galaxy collection install community.aws
+          pip install molecule-ec2
           #ansible-galaxy collection install community.docker
           
       - name: Molecule Testing
