@@ -9,7 +9,7 @@ platforms:
     image_owner: "801119661308"
     image_name: "amazon/Windows_Server-2022-English-Full-Base-2022.12.14"
     instance_type: t2.micro
-    vpc_subnet_id: vpc-0b417fd1549587454
+    vpc_subnet_id: subnet-0a45356e416ba9b1c
     user_data:  |
       <powershell>
       $url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
