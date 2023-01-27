@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Make sure python3 is installed
-      package:
-        name: python3
-        state: present
-      become: true
+    - name: Ping windows machine
+      win_ping:
+
+    - name: Get whoami information
+      win_whoami:
