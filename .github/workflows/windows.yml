@@ -39,5 +39,5 @@ jobs:
           #ansible-galaxy collection install community.docker
           
       - name: Molecule Testing
-        run:  cd moleculemultiroles/roles/Windows && molecule test -s ${{ matrix.collection_role }}
+        run:  cd moleculemultiroles/roles/Windows/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
         
