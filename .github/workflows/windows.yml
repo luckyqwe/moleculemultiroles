@@ -3,7 +3,7 @@ name: Molecule Test for monitoring role
 on:
   push:
     paths:
-      - 'roles/Windows/my_ec2_role/**'
+      - 'roles/Window/my_ec2_role/**'
       - '.github/workflows/windows.yml'
  
  #check_suite:
@@ -39,5 +39,5 @@ jobs:
           #ansible-galaxy collection install community.docker
           
       - name: Molecule Testing
-        run:  cd moleculemultiroles/roles/Windows/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
+        run:  cd moleculemultiroles/roles/Window/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
         
