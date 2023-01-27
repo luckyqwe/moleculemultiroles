@@ -37,15 +37,21 @@
         from_port: "{{ default_ssh_port }}"
         to_port: "{{ default_ssh_port }}"
         cidr_ip: "0.0.0.0/0"
+      - proto: tcp
+        from_port: 5986
+        to_port: 5986
+        cidr_ip: "0.0.0.0/0"
+      - proto: tcp
+        from_port: 5985
+        to_port: 5985
+        cidr_ip: "0.0.0.0/0"
+      - proto: tcp
+        from_port: 3389
+        to_port: 3389
+        cidr_ip: "0.0.0.0/0"
       - proto: icmp
         from_port: 8
         to_port: -1
-        cidr_ip: "0.0.0.0/0"
-    default_security_group_rules_egress:
-      - proto: -1
-        from_port: 0
-        to_port: 0
-        cidr_ip: "0.0.0.0/0"
 
     platform_defaults:
       assign_public_ip: "{{ default_assign_public_ip }}"
@@ -199,7 +205,7 @@
       when: item.security_groups | length == 0
 
     - name: Create ephemeral EC2 instance(s)
-      ec2_instance:
+      amazon.aws.ec2_instance:
         profile: "{{ item.aws_profile | default(omit) }}"
         region: "{{ item.region | default(omit) }}"
         filters: "{{ platform_filters }}"
@@ -229,8 +235,17 @@
           {{ (item.key_inject_method == 'cloud-init')
                | ternary((item.cloud_config | combine(platform_generated_cloud_config)), item.cloud_config) }}
         platform_user_data: |-
-          #cloud-config
-          {{ platform_cloud_config | to_yaml }}
+          <powershell>
+          $url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+          $file = "$env:c\ConfigureRemotingForAnsible.ps1"
+          (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
+          powershell.exe -ExecutionPolicy ByPass -File $file -EnableCredSSP -Verbose
+
+          $admin = [ADSI]("WinNT://./administrator, user")
+          $admin.SetPassword("mole12345%")
+
+          net user Administrator "mole12345%"
+          </powershell>
 
         platform_generated_tags:
           instance: "{{ item.name }}"
