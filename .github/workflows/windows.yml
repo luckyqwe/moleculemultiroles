@@ -1,1 +1,42 @@
-123
+---
+name: Molecule Test for monitoring role
+on:
+  push:
+    paths:
+      - 'roles/HSC/my_ec2_role/**'
+      - '.github/workflows/windows.yml'
+ 
+ #check_suite:
+    #types: [completed]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version:
+          - 3.8
+        collection_role:
+          - monitoring
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: moleculemultiroles
+          
+      - name: 'Set up Python ${{ matrix.python-version }}'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '${{ matrix.python-version }}'
+          
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install molecule ansible-core
+          python3 -m pip install --upgrade --user setuptools
+          python3 -m pip install --user "molecule[docker]"
+          ansible-galaxy collection install community.docker
+          
+      - name: Molecule Testing
+        run:  cd moleculemultiroles/roles/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
+        
