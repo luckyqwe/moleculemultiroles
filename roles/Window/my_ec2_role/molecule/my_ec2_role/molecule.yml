@@ -5,11 +5,11 @@ driver:
   name: ec2
 platforms:
   - name: instance
-    image: ami-00df23eac3b277b5f
-    image_owner: "801119661308"
-    image_name: "amazon/Windows_Server-2022-English-Full-Base-2022.12.14"
+    image: ami-09c08b542a3df6eac
+    image_owner: "172602726657"
+    image_name: "amazon/Windows_Server-2022-English-Full-Base-2023.01.19"
     instance_type: t2.micro
-    vpc_subnet_id: subnet-0a45356e416ba9b1c
+    vpc_subnet_id: subnet-0cd6574a3c1f4a868
     user_data:  |
       <powershell>
       $url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
