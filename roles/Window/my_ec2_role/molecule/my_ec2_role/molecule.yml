@@ -33,6 +33,20 @@ platforms:
       ansible_winrm_scheme: https
       ansible_winrm_server_cert_validation: ignore
       connection: winrm
+scenario:
+  name: my_ec2_role
+  test_sequence:
+    - destroy # destroy before dependency
+    - lint
+    - dependency # dependency need to be first since we install a module (selenium) via ansible galaxy
+    - syntax 
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - side_effect
+    - verify
+    - destroy
 provisioner:
   name: ansible
 verifier:
