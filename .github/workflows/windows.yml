@@ -18,7 +18,7 @@ jobs:
         python-version:
           - 3.8
         collection_role:
-          - monitoring
+          - my_ec2_role
     steps:
       - uses: actions/checkout@v2
         with:
@@ -34,8 +34,9 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install molecule ansible-core
           python3 -m pip install --upgrade --user setuptools
-          python3 -m pip install --user "molecule[docker]"
-          ansible-galaxy collection install community.docker
+          #python3 -m pip install --user "molecule[docker]"
+          pip install molecule-ec2
+          #ansible-galaxy collection install community.docker
           
       - name: Molecule Testing
         run:  cd moleculemultiroles/roles/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
