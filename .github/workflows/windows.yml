@@ -45,7 +45,7 @@ jobs:
           pip3 install boto boto3
           ansible-galaxy collection install community.aws
           pip install molecule-ec2
-          ansible-galaxy collection install community.crypto
+          #ansible-galaxy collection install community.crypto
           #ansible-galaxy collection install community.crypto.openssh_keypair
           #ansible-galaxy collection install community.docker
           
