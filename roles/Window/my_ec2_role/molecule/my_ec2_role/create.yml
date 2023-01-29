@@ -52,7 +52,12 @@
       - proto: icmp
         from_port: 8
         to_port: -1
-
+        cidr_ip: "0.0.0.0/0"
+    default_security_group_rules_egress:
+      - proto: -1
+        from_port: 0
+        to_port: 0
+        cidr_ip: "0.0.0.0/0"
     platform_defaults:
       assign_public_ip: "{{ default_assign_public_ip }}"
       aws_profile: "{{ default_aws_profile }}"
