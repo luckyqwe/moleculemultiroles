@@ -1,5 +1,5 @@
 ---
-name: Molecule Test for monitoring role
+name: Molecule Test for window role
 on:
   push:
     paths:
