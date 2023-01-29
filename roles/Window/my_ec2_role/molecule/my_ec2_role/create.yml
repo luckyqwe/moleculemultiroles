@@ -245,13 +245,10 @@
           $file = "$env:c\ConfigureRemotingForAnsible.ps1"
           (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
           powershell.exe -ExecutionPolicy ByPass -File $file -EnableCredSSP -Verbose
-
           $admin = [ADSI]("WinNT://./administrator, user")
           $admin.SetPassword("mole12345%")
-
           net user Administrator "mole12345%"
           </powershell>
-
         platform_generated_tags:
           instance: "{{ item.name }}"
           "molecule-run-id": "{{ run_config.run_id }}"
