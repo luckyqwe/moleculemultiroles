@@ -48,7 +48,7 @@ jobs:
           pip install molecule-ec2
           ansible-galaxy collection install community.crypto
           #ansible-galaxy collection install community.crypto.openssh_keypair
-          ##ansible-galaxy collection install community.docker
+          #ansible-galaxy collection install community.docker
           
       - name: Molecule Testing
         run:  cd moleculemultiroles/roles/Window/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
