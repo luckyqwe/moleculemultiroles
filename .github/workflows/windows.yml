@@ -32,9 +32,9 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIASQL7MTEA75XFYC73 
-          aws-secret-access-key: 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
-          aws-region: us-east-2
+          aws-access-key-id: "AKIASQL7MTEA75XFYC73" 
+          aws-secret-access-key: "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"
+          aws-region: "us-east-2"
           
       - name: Install dependencies
         run: |
