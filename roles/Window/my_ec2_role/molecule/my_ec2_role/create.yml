@@ -279,7 +279,7 @@
           set_fact:
             instance_config:
               instance: "{{ item.name }}"
-              address: "{{ item.assign_public_ip | ternary(instance.public_ip_address, instance.private_ip_address) }}"
+              address: "{{ item.assign_public_ip | ternary(instance.public_ip, instance.private_ip_address) }}"
               user: "{{ item.ssh_user }}"
               port: "{{ item.ssh_port }}"
               identity_file: "{{ item.private_key_path }}"
