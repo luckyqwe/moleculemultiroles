@@ -277,7 +277,7 @@
           
         - name: pause instance for 30 seconds to assign the public ip address to Instance
           pause:
-            seconds: 60
+            seconds: 300
 
         - name: Collect instance configs
           set_fact:
