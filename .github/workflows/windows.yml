@@ -52,6 +52,7 @@ jobs:
           
       - name: Molecule Testing
         run: |
-          cd moleculemultiroles/roles/Window/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
+          #cd moleculemultiroles/roles/Window/my_ec2_role && molecule test -s ${{ matrix.collection_role }}
+          cd moleculemultiroles/roles/Window/my_ec2_role && molecule create -s ${{ matrix.collection_role }} && molecule converge -s ${{ matrix.collection_role }}
           echo $public_ip_address
     
