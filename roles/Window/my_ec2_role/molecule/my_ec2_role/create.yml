@@ -282,7 +282,7 @@
         - name: "Ansible | Print a variable"
           register: public_ip_address
           debug:
-            var: instance.instance_id
+            var: item.public_ip_address
             
           #debug:
           #  msg: "The operating system is {{ item.assign_public_ip }}"
