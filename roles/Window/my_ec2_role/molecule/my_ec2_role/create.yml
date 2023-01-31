@@ -279,12 +279,12 @@
           pause:
             seconds: 60
         
-        - name: "Ansible | Print a variable"
-          #register: public_ip_address
-          #debug:
-          #  var: item.vpc_subnet_id 
-          debug:
-            msg: "The operating system is {{ item.vpc_subnet_id }}"
+        #- name: "Ansible | Print a variable"
+         # #register: public_ip_address
+         # #debug:
+         # #  var: item.vpc_subnet_id 
+         # debug:
+         #   msg: "The operating system is {{ item.vpc_subnet_id }}"
             
         - name: Collect instance configs
           set_fact:
