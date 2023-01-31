@@ -260,7 +260,7 @@
         index_var: index
         label: "{{ item.name }}"
       register: ec2_instances_async
-      async: 7200
+      async: 7800
       poll: 0
 
     - block:
