@@ -3,8 +3,5 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Ping windows machine
-      win_ping:
-
     - name: Get whoami information
       win_whoami:
