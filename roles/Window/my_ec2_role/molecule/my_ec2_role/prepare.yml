@@ -6,7 +6,7 @@
     - name: Get whoami information
       win_whoami:
 
-    - name: Stop service Tomcat
+    - name: Stop service Tomcat123
       win_service:
         name: Tomcat8
         state: stopped
