@@ -276,8 +276,8 @@
           retries: 300
           
         - name: pause instance for 30 seconds to assign the public ip address to Instance
-          ansible.builtin.pause:
-          seconds: 30
+          pause:
+            seconds: 30
 
         - name: Collect instance configs
           set_fact:
