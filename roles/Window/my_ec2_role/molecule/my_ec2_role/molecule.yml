@@ -25,7 +25,7 @@ platforms:
     tags:
       Name: molecule_windows
     connection_options:
-      sudo: false
+      sudo: true
       ansible_user: Administrator
       ansible_password: "mole12345%"
       ansible_port: 5986
