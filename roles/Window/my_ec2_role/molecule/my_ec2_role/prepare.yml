@@ -3,9 +3,6 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Get whoami information
-      win_whoami:
-
     - name: Stop service Tomcat
       win_service:
         name: Tomcat8
