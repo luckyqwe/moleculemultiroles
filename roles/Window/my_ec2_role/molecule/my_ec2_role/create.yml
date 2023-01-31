@@ -274,6 +274,10 @@
           register: ec2_instances
           until: ec2_instances is finished
           retries: 300
+          
+        - name: pause instance for 30 seconds to assign the public ip address to Instance
+          ansible.builtin.pause:
+          seconds: 30
 
         - name: Collect instance configs
           set_fact:
