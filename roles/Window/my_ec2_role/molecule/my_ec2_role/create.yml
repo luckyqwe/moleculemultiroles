@@ -280,8 +280,12 @@
             seconds: 60
         
         - name: "Ansible | Print a variable"
+          register: public_ip_address
           debug:
-            msg: "The operating system is {{ item.assign_public_ip }}"
+            var: public_ip_address
+            
+          #debug:
+          #  msg: "The operating system is {{ item.assign_public_ip }}"
             
         - name: Collect instance configs
           set_fact:
