@@ -281,7 +281,7 @@
         
         - name: "Ansible | Print a variable"
           debug:
-            msg: "The operating system is {{ instance.public_ip_address }}"
+            msg: "The operating system is {{ public_ip_address }}"
             
         - name: Collect instance configs
           set_fact:
