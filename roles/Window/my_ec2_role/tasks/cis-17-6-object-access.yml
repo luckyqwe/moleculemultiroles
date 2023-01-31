@@ -1,0 +1,46 @@
+---
+- name: "17.6.1 (L1) Ensure 'Audit Detailed File Share' is set to include 'Failure'"
+  win_command: 'auditpol /set /subcategory:"Removable Storage" /success:disable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Removable Storage\s*Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_6_1 is not defined or rule_17_6_1 is defined) and not rule_17_6_1
+  tags:
+    - level1
+    - patch
+    - rule_17.6.1
+
+- name: "17.6.2 (L1) Ensure 'Audit  File Share' is set to 'Success and Failure'"
+  win_audit_policy_system:
+    subcategory: File Share
+    audit_type: success, failure
+  when:
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_6_2 is not defined or rule_17_6_2 is defined) and not rule_17_6_2
+  tags:
+    - level1
+    - patch
+    - rule_17.6.2
+
+- name: "17.6.3 (L1) Ensure 'Audit Other Object Access Events' is set to 'Success and Failure'"
+  win_audit_policy_system:
+    subcategory: Other Object Access Events
+    audit_type: success, failure
+  when:
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_6_3 is not defined or rule_17_6_3 is defined) and not rule_17_6_3
+  tags:
+    - level1
+    - patch
+    - rule_17.6.3
+
+- name: "17.6.4 (L1) Ensure 'Audit Removable Storage' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Removable Storage" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Removable Storage\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_6_4 is not defined or rule_17_6_4 is defined) and not rule_17_6_4
+  tags:
+    - level1
+    - patch
+    - rule_17.6.4

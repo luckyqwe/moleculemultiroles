@@ -1,0 +1,8 @@
+---
+- name: Save the result of 'auditpol /get /category:*' in 'auditpol_data'
+  win_shell: 'auditpol /get /category:*'
+  register: auditpol_data
+  check_mode: no
+
+- set_fact:
+    auditpol_data = {{ auditpol_data.stdout }}

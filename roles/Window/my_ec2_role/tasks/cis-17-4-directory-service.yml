@@ -1,0 +1,24 @@
+---
+
+- name: "17.4.1 (L1) Ensure 'Audit Directory Service Access' is set to 'Success and Failure"
+  win_command: 'auditpol /set /subcategory:"Directory Service Access" /success:disable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Directory Service Access\s*Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_4_1 is not defined or rule_17_4_1 is defined) and not rule_17_4_1
+  tags:
+    - level1
+    - patch
+    - rule_17.4.1
+
+- name: "17.4.2 (L1) Ensure 'Audit Directory Service Changes' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Directory Service Changes" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Directory Service Changes\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_4_2 is not defined or rule_17_4_2 is defined) and not rule_17_4_2
+  tags:
+    - level1
+    - patch
+    - rule_17.4.2
+

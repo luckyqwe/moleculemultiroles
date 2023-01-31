@@ -1,0 +1,14 @@
+---
+- name: "2.3.13.1 (L1) Ensure 'Shutdown: Allow system to be shut down without having to log on' is set to 'Disabled'"
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: ShutdownWithoutLogon
+    data: 0
+    type: dword
+  when:
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_2_3_13_1 is not defined or rule_2_3_13_1 is defined) and not rule_2_3_13_1
+  tags:
+    - level1
+    - patch
+    - rule_2.3.13.1

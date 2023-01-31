@@ -1,0 +1,8 @@
+# ---
+# - name: "19.6.5.1.1 (L2) Ensure 'Turn off Help Experience Improvement Program' is set to 'Enabled'"
+#   win_regedit:
+#     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0
+#     name: NoImplicitFeedback
+#     data: 1
+#     type: dword
+#   loop: "{{ hku.sub_keys | select('match', '^S-1-5-21-[0-9]+-[0-9]+-[0-9]+-[0-9]{3,}$') | list }}"

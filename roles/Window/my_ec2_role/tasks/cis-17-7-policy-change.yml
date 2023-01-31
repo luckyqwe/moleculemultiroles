@@ -1,0 +1,56 @@
+---
+- name: "17.7.1 (L1) Ensure 'Audit Audit Policy Change' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Audit Policy Change" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Audit Policy Change\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_7_1 is not defined or rule_17_7_1 is defined) and not rule_17_7_1
+  tags:
+    - level1
+    - patch
+    - rule_17.7.1
+
+- name: "17.7.2 (L1) Ensure 'Audit Authentication Policy Change' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Authentication Policy Change" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Authentication Policy Change\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_7_2 is not defined or rule_17_7_2 is defined) and not rule_17_7_2
+  tags:
+    - level1
+    - patch
+    - rule_17.7.2
+
+- name: "17.7.3 (L1) Ensure 'Audit Authorization Policy Change' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Authorization Policy Change" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Authorization Policy Change\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_7_3 is not defined or rule_17_7_3 is defined) and not rule_17_7_3
+  tags:
+    - level1
+    - patch
+    - rule_17.7.3
+
+- name: "17.7.4 (L1) Ensure 'Audit MPSSVC Rule-Level Policy Change' is set to 'Success and Failure'"
+  win_audit_policy_system:
+    subcategory: MPSSVC Rule-Level Policy Change
+    audit_type: success, failure
+  when:
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_7_4 is not defined or rule_17_7_4 is defined) and not rule_17_7_4
+  tags:
+    - level1
+    - patch
+    - rule_17.7.4
+
+- name: "17.7.5 (L1) Ensure 'Audit Other Policy Change Events' is set to include 'Failure'"
+  win_command: 'auditpol /set /subcategory:"Other Policy Change Events" /success:disable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Other Policy Change Events Change\s*Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_7_5 is not defined or rule_17_7_5 is defined) and not rule_17_7_5
+  tags:
+    - level1
+    - patch
+    - rule_17.7.5

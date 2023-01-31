@@ -1,0 +1,34 @@
+---
+- name: "17.1.1 (L1) Ensure 'Audit Credential Validation' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Credential Validation" /success:enable /failure:enable'
+  when:
+    - auditpol_data is not regex("\s*Credential Validation\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_1_1 is not defined or rule_17_1_1 is defined) and not rule_17_1_1
+  tags:
+    - level1
+    - patch
+    - rule_17.1.1
+
+- name: "17.1.2 (L1) Ensure 'Audit Kerberos Authentication Service' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Authentication Service" /success:enable /failure:disable'
+  when:
+    - auditpol_data is not search("\s*Kerberos Authentication Service\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_1_2 is not defined or rule_17_1_2 is defined) and not rule_17_1_2
+  tags:
+    - level1
+    - patch
+    - rule_17.1.2
+
+- name: "17.1.3 (L1) Ensure 'Audit Kerberos Service Ticket Operations' is set to 'Success and Failure' (DC Only)"
+  win_command: 'auditpol /set /subcategory:"Kerberos Service Ticket Operations" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not search("\s*Audit Kerberos Service Ticket Operations\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_1_3 is not defined or rule_17_1_3 is defined) and not rule_17_1_3
+  tags:
+    - level1
+    - patch
+    - rule_17.1.3
+    

@@ -1,0 +1,67 @@
+---
+- name: "17.2.1 (L1) Ensure 'Audit Application Group Management' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Application Group Management" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Application Group Management\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_1 is not defined or rule_17_2_1 is defined) and not rule_17_2_1
+  tags:
+    - level1
+    - patch
+    - rule_17.2.1
+
+- name: "17.2.2 (L1) Ensure 'Audit Computer Account Management' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Computer Account Management" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Computer Account Management\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_2 is not defined or rule_17_2_2 is defined) and not rule_17_2_2
+  tags:
+    - level1
+    - patch
+    - rule_17.2.2
+
+- name: "17.2.3 (L1) Ensure 'Audit Distribution Group Management' is set to 'Success and Failure' (DC only)"
+  win_command: 'auditpol /set /subcategory:"Distribution Group Management" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Distribution Group Management\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_3 is not defined or rule_17_2_3 is defined) and not rule_17_2_3
+  tags:
+    - level1
+    - patch
+    - rule_17.2.3
+
+- name: "17.2.4 (L1) Ensure 'Audit Other Account Management Events' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Other Account Management Events" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Other Account Management Events\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_4 is not defined or rule_17_2_4 is defined) and not rule_17_2_4
+  tags:
+    - level1
+    - patch
+    - rule_17.2.4
+
+- name: "17.2.5 (L1) Ensure 'Audit Security Group Management' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Security Group Management" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Security Group Management\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_5 is not defined or rule_17_2_5 is defined) and not rule_17_2_5
+  tags:
+    - level1
+    - patch
+    - rule_17.2.5
+
+- name: "17.2.6 (L1) Ensure 'Audit User Account Management' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"User Account Management" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*User Account Management\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_2_6 is not defined or rule_17_2_6 is defined) and not rule_17_2_6
+  tags:
+    - level1
+    - patch
+    - rule_17.2.6
+

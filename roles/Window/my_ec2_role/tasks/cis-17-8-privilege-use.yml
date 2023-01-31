@@ -1,0 +1,13 @@
+---
+- name: "17.8.1 (L1) Ensure 'Audit Sensitive Privilege Use' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Sensitive Privilege Use" /success:enable /failure:enable' 
+  when:
+    - auditpol_data is not regex("\s*Sensitive Privilege Use\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_8_1 is not defined or rule_17_8_1 is defined) and not rule_17_8_1
+  tags:
+    - level1
+    - patch
+    - rule_17.8.1
+
+

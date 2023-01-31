@@ -1,0 +1,24 @@
+---
+
+- name: "17.3.1 (L1) Ensure 'Audit PNP Activity' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Plug and Play Events" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Plug and Play Events\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_3_1 is not defined or rule_17_3_1 is defined) and not rule_17_3_1
+  tags:
+    - level1
+    - patch
+    - rule_17.3.1
+
+- name: "17.3.2 (L1) Ensure 'Audit Process Creation' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Process Creation" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Process Creation\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_3_2 is not defined or rule_17_3_2 is defined) and not rule_17_3_2
+  tags:
+    - level1
+    - patch
+    - rule_17.3.2
+

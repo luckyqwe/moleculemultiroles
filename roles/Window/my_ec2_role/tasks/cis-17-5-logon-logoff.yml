@@ -1,0 +1,70 @@
+---
+- name: "17.5.1 (L1) Ensure 'Audit Account Lockout' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Account Lockout" /success:disable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Account Lockout\s*Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_1 is not defined or rule_17_5_1 is defined) and not rule_17_5_1
+  tags:
+    - level1
+    - patch
+    - rule_17.5.1
+
+- name: "17.5.2 (L1) Ensure 'Audit Group Membership' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Group Membership" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Group Membership\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_2 is not defined or rule_17_5_2 is defined) and not rule_17_5_2
+  tags:
+    - level1
+    - patch
+    - rule_17.5.2
+
+- name: "17.5.3 (L1) Ensure 'Audit Logoff' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Logoff" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Logoff\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_3 is not defined or rule_17_5_3 is defined) and not rule_17_5_3
+  tags:
+    - level1
+    - patch
+    - rule_17.5.3
+
+- name: "17.5.4 (L1) Ensure 'Audit Logon' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Logon" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Logon\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_4 is not defined or rule_17_5_4 is defined) and not rule_17_5_4
+  tags:
+    - level1
+    - patch
+    - rule_17.5.4
+
+- name: "17.5.5 (L1) Ensure 'Audit Other Logon/Logoff Events' is set to 'Success and Failure'"
+  win_command: 'auditpol /set /subcategory:"Other Logon/Logoff Events" /success:enable /failure:enable'
+  when: 
+    - auditpol_data is not regex("\s*Other Logon\/Logoff Events\s*Success and Failure.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_5 is not defined or rule_17_5_5 is defined) and not rule_17_5_5
+  tags:
+    - level1
+    - patch
+    - rule_17.5.5
+
+- name: "17.5.6 (L1) Ensure 'Audit Special Logon' is set to 'Success'"
+  win_command: 'auditpol /set /subcategory:"Special Logon" /success:enable /failure:disable'
+  when: 
+    - auditpol_data is not regex("\s*Special Logon\s*Success.*")
+    - win2016cis_level1 is defined and win2016cis_level1
+    - (rule_17_5_6 is not defined or rule_17_5_6 is defined) and not rule_17_5_6
+  tags:
+    - level1
+    - patch
+    - rule_17.5.6
+
+# - name: "17.5.7 (L1) Ensure 'Audit Logon' is set to 'Success and Failure'"
+#   win_command: 'auditpol /set /subcategory:"Network Policy Server" /success:enable /failure:enable'
+#   when: auditpol_data is not regex("\s*Network Policy Server\s*Success and Failure.*")

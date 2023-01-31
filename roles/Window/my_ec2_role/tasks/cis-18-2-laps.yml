@@ -1,0 +1,83 @@
+#---
+# - name: "18.8.27.6 (L1) Ensure 'Turn off picture password sign-in' is set to 'Enabled'"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
+#     name: BlockDomainPicturePassword
+#     data: 1
+#     type: dword
+# 
+# - name: "18.9.76.10.1 (L1) Ensure 'Scan removable drives' is set to 'Enabled'"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
+#     name: DisableRemovableDriveScanning
+#     data: 0
+#     type: dword
+# 
+# - name: "18.9.76.10.2 (L1) Ensure 'Turn on e-mail scanning' is set to 'Enabled'"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
+#     name: DisableEmailScanning
+#     data: 0
+#     type: dword
+# 
+# - name: "18.9.76.14 (L1) Ensure 'Turn off Windows Defender AntiVirus' is set to 'Disabled'"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender
+#     name: DisableAntiSpyware
+#     data: 0
+#     type: dword
+# 
+# - name: "Check and register if GPExtensions {D76B9641-3288-4f75-942D087DE603E3EA} key exists"
+#   win_reg_stat:
+#     path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions\{D76B9641-3288-4f75-942D087DE603E3EA}
+#   register: GPExtensions_regkey_stats
+
+# - name: "18.2.1 (L1) Ensure LAPS AdmPwd GPO Extension / CSE is installed (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions\{D76B9641-3288-4f75-942D-087DE603E3EA}
+#     name: DllName
+#     data: 1
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+# - name: "18.2.2 (L1) Ensure 'Do not allow password expiration time longer than required by policy' is set to 'Enabled' (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft Services\AdmPwd
+#     name: PwdExpirationProtectionEnabled
+#     data: 1
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+# - name: "18.2.3 (L1) Ensure 'Enable Local Admin Password Management' is set to 'Enabled' (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft Services\AdmPwd
+#     name: AdmPwdEnabled
+#     data: 1
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+# - name: "18.2.4 (L1) Ensure 'Password Settings: Password Complexity' is set to 'Enabled: Large letters + small letters + numbers + special characters' (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft Services\AdmPwd
+#     name: PasswordComplexity
+#     data: 1
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+# - name: "18.2.5 (L1) Ensure 'Password Settings: Password Length' is set to 'Enabled: 15 or more' (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft Services\AdmPwd
+#     name: PasswordLength
+#     data: 15
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+# - name: "18.2.6 (L1) Ensure 'Password Settings: Password Age (Days)' is set to 'Enabled: 30 or fewer' (MS only)"
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft Services\AdmPwd
+#     name: PasswordAgeDays
+#     data: 30
+#     type: dword
+#   when: cis_level_1 == true and GPExtensions_regkey_stats.exists == true
+
+
