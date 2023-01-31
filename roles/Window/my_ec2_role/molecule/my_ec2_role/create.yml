@@ -277,8 +277,12 @@
           
         - name: pause instance for 30 seconds to assign the public ip address to Instance
           pause:
-            seconds: 300
-
+            seconds: 60
+        
+        - name: "Ansible | Print a variable"
+          debug:
+            msg: "The operating system is {{ instance.public_ip_address }}"
+            
         - name: Collect instance configs
           set_fact:
             instance_config:
